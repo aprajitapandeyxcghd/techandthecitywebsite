@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tech and The City</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff8f2;
+      overflow-x: hidden;
+    }
+
+    .intro {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+      padding: 0 30px;
+    }
+
+    #main-heading {
+      font-family: 'Great Vibes', cursive;
+      font-size: 5em;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 2s ease;
+    }
+
+    #main-heading.animate {
+      opacity: 1;
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%) scale(1);
+    }
+
+    .intro-paragraph {
+      max-width: 800px;
+      margin-top: 120px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.5s ease, transform 1.5s ease;
+      font-size: 1.2em;
+      line-height: 1.6em;
+      color: #444;
+    }
+
+    .intro-paragraph.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px;
+      min-height: calc(100vh - 100px);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .content.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .right-image {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+    }
+
+    .right-image.show {
+      opacity: 1;
+      animation: moveRight 2s ease forwards;
+    }
+
+    @keyframes moveRight {
+      from {
+        transform: translateX(-100px) scale(1.2);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+      }
+    }
+
+    #profile-pic {
+      width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .left-text {
+      width: 50%;
+      padding-right: 30px;
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+
+    .left-text.show {
+      animation: slideLeft 1.5s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes slideLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .left-text h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .left-text p {
+      font-size: 1.2em;
+      line-height: 1.5em;
+    }
+
+    .main-blog {
+      background-color: #fefefe;
+      padding: 60px 40px;
+      font-family: Georgia, serif;
+      color: #333;
+    }
+
+    .blog-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .blog-post {
+      flex: 1 1 30%;
+      max-width: 420px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      background: white;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .blog-text {
+      padding: 20px;
+    }
+
+    .blog-text h3 {
+      font-size: 1.6em;
+      font-family: Georgia, serif;
+      color: #cc3366;
+      margin-bottom: 10px;
+    }
+
+    .blog-text h3 a {
+      text-decoration: none;
+      color: #cc3366;
+    }
+
+    .blog-text h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .blog-text p {
+      font-size: 1.1em;
+      line-height: 1.6em;
+    }
+
+    a.blog-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    @media (max-width: 960px) {
+      .blog-post {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="intro">
+    <h1 id="main-heading">Tech and The City</h1>
+    <div class="intro-paragraph" id="intro-blurb">
+      <p><strong>FASCINATING... HILARIOUS...</strong> <br>Welcome to the bizarre planet that is corporate.</p>
+      <p><em>Tech and The City</em> is a blog exploring the stories of established female leaders thriving in corporate STEM. From their daily routines to raw reflections on climbing the ladder — this blog dives into ambition, identity, and power in high heels (and hoodies).</p>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="right-image">
+      <img src="me.png" alt="Me" id="profile-pic" />
+    </div>
+    <div class="left-text" id="text-content">
+      <h2>Tech and The City</h2>
+      <p>This space is for unapologetic ambition, chaotic career climbs, and the kind of stories you don’t hear in LinkedIn posts. This blog is for every woman who’s ever dreamed of breaking into boardrooms, coding her way to the top, or leading with fearless vision. Here, we celebrate unapologetic ambition, the beautifully chaotic climbs up the corporate ladder, and the untold stories of women who’ve cracked glass ceilings — and then helped others through.
+        <br>
+        We’re bringing you the real tea from inside the tech towers, finance fortresses, and startup sanctuaries — straight from the women who lived it. Raw, honest, sometimes messy, always powerful.
+        <br>
+        Because behind every trailblazer is a journey worth sharing — and this is where we tell them.</p>
+    </div>
+  </div>
+
+  <section class="main-blog">
+    <div class="blog-grid">
+
+      <a href="page2.html" class="blog-link">
+        <div class="blog-post">
+          <img src="emma.png" alt="Emma Grede Routine" class="blog-img" />
+          <div class="blog-text">
+            <h3>I Tried Emma Grede's Routine For a Week</h3>
+            <p>From 5:00 AM power mornings to late-night hustle — here’s how I channeled my inner boss.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="page3.html" class="blog-link">
+        <div class="blog-post">
+          <img src="cry.png" alt="I Cry A Lot But I'm So Productive" class="blog-img" />
+          <div class="blog-text">
+            <h3>I Cry A Lot But I'm So Productive It's an Art</h3>
+            <p>Who says you can't run a meeting with mascara streaks?</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="page4.html" class="blog-link">
+      <div class="blog-post">
+        <img src="officetears.png" alt="From Office Tears to Powerplays" class="blog-img" />
+        <div class="blog-text">
+          <h3>From Office Tears to Powerplays</h3>
+          <p>Behind every smile is a silenced scream and a strategy deck. Welcome to the game of silent slays.</p>
+        </div>
+      </div>
+      </a>
+
+    </div>
+  </section>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const heading = document.getElementById('main-heading');
+      const blurb = document.getElementById('intro-blurb');
+      const content = document.querySelector('.content');
+      const profile = document.querySelector('.right-image');
+      const text = document.getElementById('text-content');
+
+      setTimeout(() => {
+        heading.classList.add('animate');
+        setTimeout(() => {
+          blurb.classList.add('show');
+          setTimeout(() => {
+            content.classList.add('visible');
+            profile.classList.add('show');
+            setTimeout(() => {
+              text.classList.add('show');
+            }, 1500);
+          }, 2000);
+        }, 1000);
+      }, 500);
+    });
+  </script>
+</body>
+</html>

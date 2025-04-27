@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff8f2;
+    overflow: hidden;
+  }
+  
+  .intro {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  #main-heading {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5em;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 2s ease;
+  }
+  
+  #main-heading.animate {
+    opacity: 1;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+  }
+  
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
+    height: calc(100vh - 100px);
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .content.visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .right-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+  }
+  
+  .right-image.show {
+    opacity: 1;
+    animation: moveRight 2s ease forwards;
+  }
+  
+  @keyframes moveRight {
+    from {
+      transform: translateX(-100px) scale(1.2);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+    }
+  }
+  
+  #profile-pic {
+    width: 400px;
+    border-radius: 20px;
+  }
+  
+  .left-text {
+    width: 50%;
+    padding-right: 30px;
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  
+  .left-text.show {
+    animation: slideLeft 1.5s ease forwards;
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes slideLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .left-text h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  
+  .left-text p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+  }
+  
+  .hidden {
+    display: flex;
+  }
+  
